@@ -3,7 +3,7 @@ from collections import Counter
 def count_types(players):
     res = Counter()
     for p in players:
-        res[p.get_type()] += 1
+        res[p.type] += 1
 
     return res
 
@@ -38,6 +38,10 @@ def game(payoffs, players, exclusion=0.1, rounds=10, stopping=None):
         for _, i in scores[-to_exclude:]:
             # Create object of type winners and add to array
             tmp.append(type(ps[i])())
+
+        # Clean all scores
+        for p in ps:
+            p.clean_score()
 
         ps = tmp
         generation += 1

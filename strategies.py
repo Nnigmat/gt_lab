@@ -3,31 +3,29 @@ class BasePlayer:
         self.score = 0
         self.type = 'Base'
 
-    def play(self, other):
+    def play(self):
         pass
 
     def upd_score(self, upd):
         self.score += upd
 
-    def get_type(self):
-        return 'Base'
+    def clean_score(self):
+        self.score = 0
 
 
 class StraightPlayer(BasePlayer):
+    def __init__(self):
+        super().__init__()
+        self.type = 'Straight'
+
     def play(self):
         return True
 
-    def get_type(self):
-        return 'Straight'
-
-
 
 class SwervePlayer(BasePlayer):
+    def __init__(self):
+        super().__init__()
+        self.type = 'Swerve'
+
     def play(self):
         return False
-
-    def get_type(self):
-        return 'Swerve'
-
-
-
