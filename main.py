@@ -38,13 +38,17 @@ def stopping(generation, ps):
 
     return False
 
+def fitness(ps):
+    return sum(p.score for p in ps)
+
 # Start game
 game(
     payoffs=matrix,
     players=players,
     exclusion=exclusion,
     rounds=rounds,
-    stopping=stopping
+    stopping=stopping,
+    fitness=fitness
 )
 
 

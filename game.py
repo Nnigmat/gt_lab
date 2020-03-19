@@ -8,7 +8,7 @@ def count_types(players):
     return res
 
 
-def game(payoffs, players, exclusion=0.1, rounds=10, stopping=None):
+def game(payoffs, players, exclusion=0.1, rounds=10, stopping=None, fitness=None):
     # Create players
     ps = []
     for key, value in players.items():
@@ -18,8 +18,8 @@ def game(payoffs, players, exclusion=0.1, rounds=10, stopping=None):
     to_exclude = int(sum(players.values()) * exclusion)
 
     generation = 1
+    print(f'Generation: {generation}. Current players distribution: {count_types(ps)}')
     while not stopping(generation, ps):
-        print(f'Generation: {generation}. Current players distribution: {count_types(ps)}')
         # Games between all players
         for i, player1 in enumerate(ps[:-1]):
             for player2 in ps[i+1:]:
@@ -39,13 +39,15 @@ def game(payoffs, players, exclusion=0.1, rounds=10, stopping=None):
             # Create object of type winners and add to array
             tmp.append(type(ps[i])())
 
+        print(f'Generation: {generation}. Current players distribution: {count_types(ps)}. Fitness: {fitness(ps)}')
         # Clean all scores
         for p in ps:
             p.clean_score()
 
+
         ps = tmp
         generation += 1
-    print(f'Generation: {generation}. Current players distribution: {count_types(ps)}')
+    print(f'\nRESULT: Current players distribution: {count_types(ps)}')
 
     return ps
 
