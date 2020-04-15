@@ -81,4 +81,8 @@ public class SemiBestRandomPlayer implements Player {
         }
     }
 
+    @Override
+    public String getEmail() {
+        return "n.nigmatullin@innopolis.ru";
+    }
 }

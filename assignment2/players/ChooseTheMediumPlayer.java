@@ -20,5 +20,8 @@ public class ChooseTheMediumPlayer implements Player {
             return 3;
         }
     }
-
+    @Override
+    public String getEmail() {
+        return "n.nigmatullin@innopolis.ru";
+    }
 }

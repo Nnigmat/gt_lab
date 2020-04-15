@@ -21,4 +21,10 @@ public class ChooseTheBestPlayer implements Player {
         }
     }
 
+    @Override
+    public String getEmail() {
+        // TODO Auto-generated method stub
+        return "n.nigmatullin@innopolis.ru";
+    }
+
 }

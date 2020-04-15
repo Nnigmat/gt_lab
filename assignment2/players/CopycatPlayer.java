@@ -23,5 +23,8 @@ public class CopycatPlayer implements Player {
         // Return the previous move of the opponent
         return opponentLastMove;
     }
-
+    @Override
+    public String getEmail() {
+        return "n.nigmatullin@innopolis.ru";
+    }
 }
